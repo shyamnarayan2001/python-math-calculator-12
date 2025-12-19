@@ -1,82 +1,83 @@
 """
 Python Math Calculator
-A simple calculator module for basic math operations.
+A simple calculator for basic math operations (addition and subtraction)
 """
 
 class Calculator:
-    """A calculator class for performing basic math operations."""
+    """A simple calculator class for basic math operations"""
     
     def __init__(self):
-        """Initialize the calculator."""
-        self.history = []
+        """Initialize the calculator"""
+        self.result = 0
     
-    def add(self, a, b):
+    def add(self, num1, num2):
         """
-        Add two numbers.
+        Add two numbers
         
         Args:
-            a (float): First number
-            b (float): Second number
+            num1 (float): First number
+            num2 (float): Second number
             
         Returns:
-            float: Sum of a and b
+            float: Sum of num1 and num2
         """
-        result = a + b
-        self.history.append(f"{a} + {b} = {result}")
-        return result
+        self.result = num1 + num2
+        return self.result
     
-    def subtract(self, a, b):
+    def subtract(self, num1, num2):
         """
-        Subtract second number from first number.
+        Subtract num2 from num1
         
         Args:
-            a (float): First number
-            b (float): Second number
+            num1 (float): First number (minuend)
+            num2 (float): Second number (subtrahend)
             
         Returns:
-            float: Difference of a and b
+            float: Difference of num1 and num2
         """
-        result = a - b
-        self.history.append(f"{a} - {b} = {result}")
-        return result
+        self.result = num1 - num2
+        return self.result
     
-    def get_history(self):
+    def get_result(self):
         """
-        Get calculation history.
+        Get the last calculation result
         
         Returns:
-            list: List of previous calculations
+            float: Last calculation result
         """
-        return self.history
-    
-    def clear_history(self):
-        """Clear calculation history."""
-        self.history = []
+        return self.result
 
 
 def main():
-    """Main function to demonstrate calculator usage."""
+    """Main function to demonstrate calculator usage"""
     calc = Calculator()
     
     print("Python Math Calculator")
     print("=" * 30)
     
     # Addition examples
-    print(f"\nAddition:")
-    print(f"10 + 5 = {calc.add(10, 5)}")
-    print(f"25.5 + 14.3 = {calc.add(25.5, 14.3)}")
-    print(f"-8 + 15 = {calc.add(-8, 15)}")
+    print("\nAddition Examples:")
+    result1 = calc.add(10, 5)
+    print(f"10 + 5 = {result1}")
+    
+    result2 = calc.add(25.5, 14.5)
+    print(f"25.5 + 14.5 = {result2}")
+    
+    result3 = calc.add(-10, 15)
+    print(f"-10 + 15 = {result3}")
     
     # Subtraction examples
-    print(f"\nSubtraction:")
-    print(f"20 - 8 = {calc.subtract(20, 8)}")
-    print(f"100 - 45.5 = {calc.subtract(100, 45.5)}")
-    print(f"5 - 12 = {calc.subtract(5, 12)}")
+    print("\nSubtraction Examples:")
+    result4 = calc.subtract(20, 8)
+    print(f"20 - 8 = {result4}")
     
-    # Display history
-    print(f"\nCalculation History:")
-    for entry in calc.get_history():
-        print(f"  {entry}")
+    result5 = calc.subtract(50.5, 25.3)
+    print(f"50.5 - 25.3 = {result5}")
+    
+    result6 = calc.subtract(10, 30)
+    print(f"10 - 30 = {result6}")
+    
+    print(f"\nLast result: {calc.get_result()}")
 
 
 if __name__ == "__main__":

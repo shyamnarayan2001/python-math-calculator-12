@@ -122,7 +122,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# IDE specific files
+# IDE
 .vscode/
 .idea/
 *.swp

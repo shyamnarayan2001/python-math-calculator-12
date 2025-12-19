@@ -1,26 +1,25 @@
 # Python Math Calculator
 
-A simple Python calculator application that performs basic math operations (addition and subtraction).
+A simple Python calculator application for basic math operations.
 
 ## Features
 
-- **Addition**: Add two numbers together
-- **Subtraction**: Subtract one number from another
-- **Calculation History**: Track all calculations performed
-- **Support for Multiple Number Types**: Works with integers, floats, and negative numbers
+- Addition of two numbers
+- Subtraction of two numbers
+- Support for both integers and floating-point numbers
+- Clean and well-documented code
 
 ## Project Structure
 
 ```
 python-math-calculator-12/
-├── calculator.py           # Main calculator module
-├── tests/
+├── calculator.py          # Main calculator module
+├── tests/                 # Test directory
 │   ├── __init__.py
 │   └── test_calculator.py # Unit tests
-├── README.md              # Project documentation
-├── requirements.txt       # Python dependencies
+├── requirements.txt       # Project dependencies
 ├── .gitignore            # Git ignore file
-└── setup.py              # Package setup file
+└── README.md             # This file
 ```
 
 ## Installation
@@ -38,7 +37,13 @@ pip install -r requirements.txt
 
 ## Usage
 
-### As a Module
+### As a standalone script:
+
+```bash
+python calculator.py
+```
+
+### As a module:
 
 ```python
 from calculator import Calculator
@@ -46,83 +51,71 @@ from calculator import Calculator
 # Create calculator instance
 calc = Calculator()
 
-# Perform calculations
-result1 = calc.add(10, 5)        # Returns: 15
-result2 = calc.subtract(20, 8)   # Returns: 12
+# Perform addition
+result = calc.add(10, 5)
+print(f"Result: {result}")  # Output: Result: 15
 
-# View calculation history
-history = calc.get_history()
-print(history)
-
-# Clear history
-calc.clear_history()
-```
-
-### Run the Demo
-
-```bash
-python calculator.py
+# Perform subtraction
+result = calc.subtract(20, 8)
+print(f"Result: {result}")  # Output: Result: 12
 ```
 
 ## Running Tests
 
-Run the unit tests using unittest:
-
 ```bash
-python -m unittest discover tests
-```
-
-Or run specific test file:
-
-```bash
-python tests/test_calculator.py
+python -m pytest tests/
 ```
 
 ## API Reference
 
 ### Calculator Class
 
-#### Methods
+#### `add(num1, num2)`
+Add two numbers together.
 
-- `add(a, b)`: Add two numbers and return the result
-  - Parameters: `a` (float), `b` (float)
-  - Returns: float
+- **Parameters:**
+  - `num1` (float): First number
+  - `num2` (float): Second number
+- **Returns:** float - Sum of the two numbers
 
-- `subtract(a, b)`: Subtract b from a and return the result
-  - Parameters: `a` (float), `b` (float)
-  - Returns: float
+#### `subtract(num1, num2)`
+Subtract the second number from the first.
 
-- `get_history()`: Get list of all calculations performed
-  - Returns: list of strings
+- **Parameters:**
+  - `num1` (float): First number (minuend)
+  - `num2` (float): Second number (subtrahend)
+- **Returns:** float - Difference of the two numbers
 
-- `clear_history()`: Clear the calculation history
-  - Returns: None
+#### `get_result()`
+Get the result of the last calculation.
+
+- **Returns:** float - Last calculation result
 
 ## Examples
 
-### Addition Examples
-
 ```python
+from calculator import Calculator
+
 calc = Calculator()
 
-print(calc.add(10, 5))       # Output: 15
-print(calc.add(25.5, 14.3))  # Output: 39.8
-print(calc.add(-8, 15))      # Output: 7
-```
+# Addition examples
+print(calc.add(10, 5))      # Output: 15
+print(calc.add(25.5, 14.5)) # Output: 40.0
+print(calc.add(-10, 15))    # Output: 5
 
-### Subtraction Examples
-
-```python
-calc = Calculator()
-
-print(calc.subtract(20, 8))      # Output: 12
-print(calc.subtract(100, 45.5))  # Output: 54.5
-print(calc.subtract(5, 12))      # Output: -7
+# Subtraction examples
+print(calc.subtract(20, 8))     # Output: 12
+print(calc.subtract(50.5, 25.3)) # Output: 25.2
+print(calc.subtract(10, 30))    # Output: -20
 ```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
@@ -130,8 +123,9 @@ This project is open source and available under the MIT License.
 
 ## Author
 
-Shyam Narayan
+Shyam Narayan - [shyamnarayan2001](https://github.com/shyamnarayan2001)
 
-## Repository
+## Acknowledgments
 
-GitHub: [python-math-calculator-12](https://github.com/shyamnarayan2001/python-math-calculator-12)
+- Built with Python 3.x
+- Follows PEP 8 style guidelines

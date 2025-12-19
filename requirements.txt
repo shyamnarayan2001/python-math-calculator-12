@@ -1,6 +1,11 @@
-# Python Math Calculator Dependencies
-# No external dependencies required for basic functionality
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
 
-# Testing dependencies (optional)
-# pytest==7.4.3
-# pytest-cov==4.1.0
+# Code Quality
+pylint>=2.17.0
+black>=23.7.0
+flake8>=6.1.0
+
+# Documentation
+sphinx>=7.1.0
