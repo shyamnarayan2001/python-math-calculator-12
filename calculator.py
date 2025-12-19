@@ -1,83 +1,109 @@
 """
 Python Math Calculator
-A simple calculator for basic math operations (addition and subtraction)
+======================
+A simple calculator module for performing basic mathematical operations.
+
+Author: Narayan
+Date: 2025-12-19
 """
 
+
 class Calculator:
-    """A simple calculator class for basic math operations"""
+    """
+    A calculator class that provides basic mathematical operations.
+    
+    This class implements addition and subtraction operations for two numbers.
+    All operations support both integer and floating-point numbers.
+    """
     
     def __init__(self):
-        """Initialize the calculator"""
-        self.result = 0
+        """Initialize the Calculator instance."""
+        self.history = []
     
     def add(self, num1, num2):
         """
-        Add two numbers
+        Add two numbers together.
         
         Args:
-            num1 (float): First number
-            num2 (float): Second number
+            num1 (int/float): The first number
+            num2 (int/float): The second number
             
         Returns:
-            float: Sum of num1 and num2
+            int/float: The sum of num1 and num2
+            
+        Example:
+            >>> calc = Calculator()
+            >>> calc.add(5, 3)
+            8
+            >>> calc.add(10.5, 2.3)
+            12.8
         """
-        self.result = num1 + num2
-        return self.result
+        result = num1 + num2
+        operation = f"{num1} + {num2} = {result}"
+        self.history.append(operation)
+        return result
     
     def subtract(self, num1, num2):
         """
-        Subtract num2 from num1
+        Subtract the second number from the first number.
         
         Args:
-            num1 (float): First number (minuend)
-            num2 (float): Second number (subtrahend)
+            num1 (int/float): The number to subtract from
+            num2 (int/float): The number to subtract
             
         Returns:
-            float: Difference of num1 and num2
+            int/float: The difference of num1 and num2
+            
+        Example:
+            >>> calc = Calculator()
+            >>> calc.subtract(10, 3)
+            7
+            >>> calc.subtract(5.5, 2.2)
+            3.3
         """
-        self.result = num1 - num2
-        return self.result
+        result = num1 - num2
+        operation = f"{num1} - {num2} = {result}"
+        self.history.append(operation)
+        return result
     
-    def get_result(self):
+    def get_history(self):
         """
-        Get the last calculation result
+        Get the history of all operations performed.
         
         Returns:
-            float: Last calculation result
+            list: A list of all operations performed
         """
-        return self.result
+        return self.history
+    
+    def clear_history(self):
+        """Clear the operation history."""
+        self.history = []
 
 
 def main():
-    """Main function to demonstrate calculator usage"""
+    """Main function to demonstrate calculator usage."""
+    print("=" * 50)
+    print("Python Math Calculator")
+    print("=" * 50)
+    
     calc = Calculator()
     
-    print("Python Math Calculator")
-    print("=" * 30)
-    
     # Addition examples
-    print("\nAddition Examples:")
-    result1 = calc.add(10, 5)
-    print(f"10 + 5 = {result1}")
-    
-    result2 = calc.add(25.5, 14.5)
-    print(f"25.5 + 14.5 = {result2}")
-    
-    result3 = calc.add(-10, 15)
-    print(f"-10 + 15 = {result3}")
+    print("\n--- Addition Examples ---")
+    print(f"5 + 3 = {calc.add(5, 3)}")
+    print(f"10.5 + 2.5 = {calc.add(10.5, 2.5)}")
+    print(f"100 + 250 = {calc.add(100, 250)}")
     
     # Subtraction examples
-    print("\nSubtraction Examples:")
-    result4 = calc.subtract(20, 8)
-    print(f"20 - 8 = {result4}")
+    print("\n--- Subtraction Examples ---")
+    print(f"10 - 3 = {calc.subtract(10, 3)}")
+    print(f"50.8 - 20.3 = {calc.subtract(50.8, 20.3)}")
+    print(f"1000 - 450 = {calc.subtract(1000, 450)}")
     
-    result5 = calc.subtract(50.5, 25.3)
-    print(f"50.5 - 25.3 = {result5}")
-    
-    result6 = calc.subtract(10, 30)
-    print(f"10 - 30 = {result6}")
-    
-    print(f"\nLast result: {calc.get_result()}")
+    # Display history
+    print("\n--- Operation History ---")
+    for operation in calc.get_history():
+        print(operation)
 
 
 if __name__ == "__main__":
